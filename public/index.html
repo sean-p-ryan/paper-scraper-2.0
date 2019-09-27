@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" />
+    <link rel="stylesheet" href="./main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>ACM Paper Scraper</title>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="table-container">
+            <div>
+                <table class="papers-table">
+                    <thead class="table-head">
+                        <tr>
+                            <th>Paper URL</th>
+                            <th>Paper Title</th>
+                            <th>Authors</th>
+                            <th>Journal Name</th>
+                        </tr>
+                    </thead>
+                    <form id="paperSubmitForm"></form>
+                    <tr>
+                        <td>
+                            <input type="text" name="paperUrl" placeholder="Paper URL">
+                        </td>
+                        <td class="paperTitle"></td>
+                        <td class="Authors"></td>
+                        <td class="journalName"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="paperUrl" placeholder="Paper URL">
+                        </td>
+                        <td class="paperTitle"></td>
+                        <td class="Authors"></td>
+                        <td class="journalName"></td>
+                    </tr>
+                </table>
+                <button type="submit">Get Data for All Papers</button>
+                </form>
+            </div>
+            <div>
+                <button class="add-row-button">Add Row</button>
+            </div>
+            <div>
+                <button class="delete-row-button">Delete Row</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
