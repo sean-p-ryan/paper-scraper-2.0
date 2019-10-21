@@ -36,16 +36,25 @@ server.on("listening", () => {
 
 // Define routes
 app.post('/data/retrieve', (req, res) => {
-    const urls = req.body.paperURLs;
-    urls.forEach(url => {
-        rp(url)
-            .then(html => {
-                console.log("Here's the title " + cheerio('.large-text > h1:nth-child(1)', html).text())
-                console.log("Here are the authors " + cheerio("[title='Author Profile Page']", html));
-                console.log("Here's the journal title " + cheerio('table.medium-text:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1)', html).text())
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    })
+    const url = req.body.paperURL;
+    const papers = [];
+    rp(url)
+        .then(html => {
+            const paper = [];
+            // Push title into paper array
+            paper.push(req.body.row)
+            paper.push(cheerio('.large-text > h1:nth-child(1)', html).text());
+            // Push authors into paper array
+            paper.push(" " + cheerio("[title='Author Profile Page']", html).text());            
+            // Push journal into paper array                
+            paper.push(cheerio('table.medium-text:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1)', html).text())
+
+            papers.push(paper);
+            console.log("Here's paper " + paper)
+            console.log("Here's papers array " + papers)
+            res.send(paper)
+        })        
+        .catch(err => {
+            console.log(err)
+        })
 });
