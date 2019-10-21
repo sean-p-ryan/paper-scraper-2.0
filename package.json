@@ -1,7 +1,7 @@
 {
-    "name": "movie-api-project",
+    "name": "acm-paper-scraper",
     "version": "1.0.0",
-    "description": "An app for searching popular movies.",
+    "description": "An app for scraping the ACM Digital Library for paper info.",
     "main": "server.js",
     "scripts": {
         "test": "set NODE_ENV=test&& jasmine",
