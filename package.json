@@ -10,12 +10,15 @@
     "author": "Sean Ryan",
     "license": "ISC",
     "dependencies": {
+        "body-parser": "^1.19.0",
+        "connect": "^3.7.0",
         "dotenv": "^8.1.0",
         "express": "^4.17.1",
+        "method-override": "*",
         "node-fetch": "^2.6.0"
     },
     "devDependencies": {
         "jasmine": "^3.0.0",
-        "request": "^2.83.0"
+        "request": "^2.88.0"
     }
 }
