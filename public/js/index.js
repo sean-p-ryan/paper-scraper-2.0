@@ -5,12 +5,12 @@ const deleteRowButton = document.querySelector(".delete-row-button");
 const submitButton = document.querySelector(".submit-button");
 
 const newRowMarkup = `
-    <td>
-        <input type="text" class="paper-url" placeholder="Paper URL">
-    </td>
     <td class="paper-title"></td>
     <td class="authors"></td>
     <td class="journal-name"></td>
+    <td>
+    <input type="text" class="paper-url" placeholder="Paper URL">
+</td>
 `
 
 document.addEventListener('click', function (e) {
