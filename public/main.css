@@ -7,6 +7,10 @@ body {
     /* overflow-y: hidden; */
 }
 
+h1, h3 {
+    text-align: center;
+}
+
 th {
     border: 1px solid #000000;
     margin-right: 0;
@@ -26,7 +30,7 @@ td {
     display: flex;
     flex-direction: row;
     width: 500px;
-    margin: 10% auto;    
+    margin: 5% auto;    
 }
 
 .add-row-button, .delete-row-button {
