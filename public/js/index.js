@@ -24,25 +24,22 @@ document.addEventListener('click', function(e) {
 })
 
 const sendURLsToServer = () => {
-    const urlArray = "test"
+    let urlArray = [];
+    paperURLS.forEach(paper => {
+        urlArray.push(paper.value);
+    })
 
     fetch('data/retrieve', {
             method: 'POST',
-            headers: new Headers(),
-            body: { "paperURLs": "test" }
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            body: JSON.stringify({ paperURLs: urlArray })
         })
         .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
 }
-
-const getPaperURLs = () => {
-    let urlArray = [];
-    paperURLS.forEach(paper => {
-        urlArray.push(paper.value);
-    })
-    return urlArray;
-};
 
 const addNewRow = () => {
     const newRow = document.createElement('tr');

@@ -1,9 +1,10 @@
-const connect = require('connect')
 const express = require('express');
 const app = express();
 const fetch = require('node-fetch');
 const http = require('http');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const rp = require('request-promise');
+const cheerio = require('cheerio');
 
 
 const port = normalizePort(process.env.PORT || "3000");
@@ -33,9 +34,18 @@ server.on("listening", () => {
     console.log(`server is listening for requests on port ${server.address().port}`);
 });
 
-
-
 // Define routes
 app.post('/data/retrieve', (req, res) => {
-    console.log(req);
+    const urls = req.body.paperURLs;
+    urls.forEach(url => {
+        rp(url)
+            .then(html => {
+                console.log("Here's the title " + cheerio('.large-text > h1:nth-child(1)', html).text())
+                console.log("Here are the authors " + cheerio("[title='Author Profile Page']", html));
+                console.log("Here's the journal title " + cheerio('table.medium-text:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1)', html).text())
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    })
 });
