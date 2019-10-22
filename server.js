@@ -49,6 +49,9 @@ app.post('/data/retrieve', (req, res) => {
             // Push journal into paper array                
             paper.push(cheerio('table.medium-text:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1)', html).text())
 
+            // Push full pdf URL into paper array
+            paper.push(cheerio('#divmain > table:nth-child(2) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2) > a:nth-child(2)', html).attr('href'));
+
             papers.push(paper);
             console.log("Here's paper " + paper)
             console.log("Here's papers array " + papers)
