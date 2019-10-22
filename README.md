@@ -11,4 +11,4 @@ After cloning into a local copy of the repo, run `npm install` to install depend
 Node and Express handles the request/response cycle and data transfer from server to client. 
 
 ### Web Scraping
-Once the user enters paper URLs and kicks off a search, the URLs are sent to the server as a POST request via the fetch API. From there, I use the (Request-Promise)[https://www.npmjs.com/package/request-promise] HTTP request client to retrieve the raw HTML from the target page, and (Cheerio)[https://cheerio.js.org/] to parse the HTML to retrieve the desired text.
+Once the user enters paper URLs and kicks off a search, the URLs are sent to the server as a POST request via the fetch API. From there, I use the [Request-Promise](https://www.npmjs.com/package/request-promise) HTTP request client to retrieve the raw HTML from the target page, and [Cheerio](https://cheerio.js.org/) to parse the HTML to retrieve the desired text.
