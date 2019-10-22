@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Security-Policy" />
     <link rel="stylesheet" href="./main.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/80483a4124.js" crossorigin="anonymous"></script>
     <title>ACM Paper Scraper</title>
 
 </head>
@@ -15,19 +16,22 @@
 <body>
     <div class="main-container">
         <h1>ACM Digital Library Paper Scraper</h1>
-        <h3>A tool for collecting titles, authors and journal names from papers published in the ACM Digital Library</h3>
+        <div class="description">
+            <h3>Collect titles, authors & publication names from ACM journal articles with a single click</h3>
+            <p>Step 1: Add links pointing to article pages in the ACM Digital Library <a href="https://dl.acm.org/citation.cfm?doid=3360012.3342282">like this one</a> to the "Paper URL" fields.</p>
+            <p>Step 2: Click "Get Data" to unleash the beautiful magic of web scraping.</p>
+        </div>
         <div class="table-container">
             <div>
                 <table class="papers-table">
                     <thead class="table-head">
-                        <tr>                            
+                        <tr>
                             <th>Paper Title</th>
                             <th>Authors</th>
                             <th>Journal Name</th>
                             <th>Paper URL</th>
                         </tr>
                     </thead>
-                    <form id="paperSubmitForm"></form>
                     <tr>
                         <td class="paper-title"></td>
                         <td class="authors"></td>
@@ -45,14 +49,11 @@
                         </td>
                     </tr>
                 </table>
-                <button class="submit-button">Get Data for All Papers</button>
-                </form>
             </div>
-            <div>
-                <button class="add-row-button">Add Row</button>
-            </div>
-            <div>
-                <button class="delete-row-button">Delete Row</button>
+            <div class="buttons">
+                <button class="add-row-button">Add Row <i class="fas fa-plus"></i></button>
+                <button class="delete-row-button">Delete Row <i class="fas fa-minus"></i></button>
+                <button class="submit-button">Get Data <i class="fas fa-search"></i></button>
             </div>
         </div>
     </div>

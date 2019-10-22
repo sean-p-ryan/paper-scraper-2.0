@@ -1,14 +1,28 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
 body {
     color: #131d04;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
-    /* overflow-y: hidden; */
 }
 
-h1, h3 {
+h1,
+h3 {
     text-align: center;
+}
+
+button {
+    margin-bottom: 5px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.description {
+    width: 70%;
+    margin: 0 auto;
 }
 
 th {
@@ -18,7 +32,12 @@ th {
 
 td {
     border: 1px solid black;
-    height: 15px;    
+    height: 15px;
+}
+
+input {
+    width: 98%;
+    border: none;
 }
 
 .main-container {
@@ -29,11 +48,17 @@ td {
 .table-container {
     display: flex;
     flex-direction: row;
-    width: 500px;
-    margin: 5% auto;    
+    width: 100%;
+    justify-content: center;
 }
 
-.add-row-button, .delete-row-button {
+.papers-table {
+    width: 900px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
     border-radius: 20px;
+    margin-left: 10px;
 }
-

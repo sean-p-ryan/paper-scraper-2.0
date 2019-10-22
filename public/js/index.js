@@ -13,7 +13,7 @@ const newRowMarkup = `
 </td>
 `
 
-document.addEventListener('click', function (e) {
+document.addEventListener('click', function(e) {
     if (e.target === addRowButton) {
         addNewRow();
     } else if (e.target === deleteRowButton) {
@@ -31,15 +31,15 @@ const getAllPaperData = () => {
 
     for (let i = 0; i < urlArray.length; i++) {
         const response = fetch('data/retrieve', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify({ 
-                paperURL: urlArray[i], 
-                row: i+1
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                body: JSON.stringify({
+                    paperURL: urlArray[i],
+                    row: i + 1
+                })
             })
-        })
             .then(res => res.json())
             .then(json => {
                 console.log("should be data" + json)
@@ -55,25 +55,29 @@ const addPaperDataToTable = (paperData, row) => {
     console.log("Here's the title " + paperData[1])
     const paperTitleCell = document.querySelectorAll('.paper-title');
     const authorsCell = document.querySelectorAll('.authors');
-    const journalCell = document.querySelectorAll('.journal-name');    
-    paperTitleCell[row-1].innerText = paperData[1];
+    const journalCell = document.querySelectorAll('.journal-name');
+    paperTitleCell[row - 1].innerText = paperData[1];
     console.log("Here is the author data " + paperData[2]);
-    authorsCell[row-1].innerText = getCleanAuthorsString(paperData[2]);
-    journalCell[row-1].innerText = paperData[3];
+    authorsCell[row - 1].innerText = getCleanAuthorsString(paperData[2]);
+    journalCell[row - 1].innerText = paperData[3];
 }
 
 function getCleanAuthorsString(authors) {
     var newAuthorString = '';
-    for (let i=0; i <= authors.length; i++){
-      var char = authors.charAt(i);
-      var nextChar = authors.charAt(i+1);
-      if (i < authors.length - 1 && (char === char.toLowerCase()) && char != ' ' && nextChar != ' ' && (nextChar === nextChar.toUpperCase())){      
-        newAuthorString += char + ', ';
-      } else {
-        newAuthorString += char;
-      }
+    for (let i = 0; i <= authors.length; i++) {
+        var char = authors.charAt(i);
+        var nextChar = authors.charAt(i + 1);
+        if (i < authors.length - 1 && (char === char.toLowerCase()) && char != ' ' && nextChar != ' ' && (nextChar === nextChar.toUpperCase())) {
+            newAuthorString += char + ', ';
+        } else {
+            newAuthorString += char;
+        }
     }
     return newAuthorString;
+}
+
+function getCleanJournalTitle(journalString) {
+    // function logic
 }
 
 const addNewRow = () => {
