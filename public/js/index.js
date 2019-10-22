@@ -10,6 +10,7 @@ const newRowMarkup = `
     <td class="journal-name"></td>
     <td>
     <input type="text" class="paper-url" placeholder="Paper URL">
+    <td class="tweet"></td>
 </td>
 `
 
@@ -51,15 +52,19 @@ const getAllPaperData = () => {
 };
 
 const addPaperDataToTable = (paperData, row) => {
-    console.log("Here's the row " + row)
-    console.log("Here's the title " + paperData[1])
     const paperTitleCell = document.querySelectorAll('.paper-title');
     const authorsCell = document.querySelectorAll('.authors');
     const journalCell = document.querySelectorAll('.journal-name');
+    const tweetCell = document.querySelectorAll('.tweet');
+
+    const journalNameText = getCleanJournalName(paperData[3]);
+    const authorsText = getCleanAuthorsString(paperData[2]);
+    const pdfUrl = getPdfUrl(paperData[4])
+
     paperTitleCell[row - 1].innerText = paperData[1];
-    console.log("Here is the author data " + paperData[2]);
-    authorsCell[row - 1].innerText = getCleanAuthorsString(paperData[2]);
-    journalCell[row - 1].innerText = getCleanJournalName(paperData[3]);
+    authorsCell[row - 1].innerText = authorsText;
+    journalCell[row - 1].innerText = journalNameText;
+    tweetCell[row - 1].innerText = "Read " + paperData[1] + " in " + journalNameText + " by " + authorsText + ": " + pdfUrl;
 }
 
 function getCleanAuthorsString(authors) {
@@ -83,6 +88,16 @@ function getCleanJournalName(journalString) {
         newJournalString += journalString[i];
     }
     return newJournalString;
+}
+
+function getPdfUrl(urlString) {
+    let indexOfAmp = urlString.indexOf('&');
+    let newUrlString = '';
+    newUrlString += 'https://dl.acm.org/'
+    for (i = 0; i < indexOfAmp; i++) {
+        newUrlString += urlString.charAt(i);
+    }
+    return newUrlString;
 }
 
 const addNewRow = () => {
