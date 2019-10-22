@@ -64,7 +64,7 @@ const addPaperDataToTable = (paperData, row) => {
     paperTitleCell[row - 1].innerText = paperData[1];
     authorsCell[row - 1].innerText = authorsText;
     journalCell[row - 1].innerText = journalNameText;
-    tweetCell[row - 1].innerText = "Read " + paperData[1] + " in " + journalNameText + " by " + authorsText + ": " + pdfUrl;
+    tweetCell[row - 1].innerText = "Read '" + paperData[1] + "'" + ", in " + journalNameText + ", by " + authorsText + ": " + pdfUrl;
 }
 
 function getCleanAuthorsString(authors) {
