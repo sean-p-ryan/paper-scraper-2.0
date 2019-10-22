@@ -1,5 +1,6 @@
 * {
     font-family: 'Roboto Mono', monospace;
+    background-color: #d5d5d5;
 }
 
 body {
@@ -16,6 +17,7 @@ h3 {
 
 button {
     margin-bottom: 5px;
+    margin-left: 10px;
     height: 25px;
     font-size: 15px;
 }

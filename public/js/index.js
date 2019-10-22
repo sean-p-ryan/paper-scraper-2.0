@@ -59,7 +59,7 @@ const addPaperDataToTable = (paperData, row) => {
     paperTitleCell[row - 1].innerText = paperData[1];
     console.log("Here is the author data " + paperData[2]);
     authorsCell[row - 1].innerText = getCleanAuthorsString(paperData[2]);
-    journalCell[row - 1].innerText = paperData[3];
+    journalCell[row - 1].innerText = getCleanJournalName(paperData[3]);
 }
 
 function getCleanAuthorsString(authors) {
@@ -76,8 +76,13 @@ function getCleanAuthorsString(authors) {
     return newAuthorString;
 }
 
-function getCleanJournalTitle(journalString) {
-    // function logic
+function getCleanJournalName(journalString) {
+    let closedParenIndex = journalString.indexOf(')');
+    let newJournalString = '';
+    for (i = 0; i <= closedParenIndex; i++) {
+        newJournalString += journalString[i];
+    }
+    return newJournalString;
 }
 
 const addNewRow = () => {
