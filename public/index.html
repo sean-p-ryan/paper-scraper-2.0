@@ -16,13 +16,20 @@
 <body>
     <div class="main-container">
         <h1>ACM Digital Library Paper Scraper</h1>
-        <div class="description">
+        <div class="title-and-description">
             <h3>Collect titles, authors & publication names from ACM journal articles with a single click</h3>
-            <p>Step 1: Add links pointing to article pages in the ACM Digital Library <a href="https://dl.acm.org/citation.cfm?doid=3360012.3342282">like this one</a> to the "Paper URL" fields.</p>
-            <p>Step 2: Click "Get Data" to unleash the beautiful magic of web scraping.</p>
+            <div class="instructions">
+                <p>Step 1: Add links pointing to article pages in the ACM Digital Library <a href="https://dl.acm.org/citation.cfm?doid=3360012.3342282">like this one</a> to the "Paper URL" fields.</p>
+                <p>Step 2: Click "Get Data" to unleash the beautiful magic of web scraping.</p>
+            </div>
         </div>
         <div class="table-container">
             <div>
+                <div class="buttons">
+                    <button class="add-row-button">Add Row <i class="fas fa-plus"></i></button>
+                    <button class="delete-row-button">Delete Row <i class="fas fa-minus"></i></button>
+                    <button class="submit-button">Get Data <i class="fas fa-search"></i></button>
+                </div>
                 <table class="papers-table">
                     <thead class="table-head">
                         <tr>
@@ -49,11 +56,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div class="buttons">
-                <button class="add-row-button">Add Row <i class="fas fa-plus"></i></button>
-                <button class="delete-row-button">Delete Row <i class="fas fa-minus"></i></button>
-                <button class="submit-button">Get Data <i class="fas fa-search"></i></button>
             </div>
         </div>
     </div>
