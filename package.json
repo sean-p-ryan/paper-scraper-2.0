@@ -16,7 +16,7 @@
         "dotenv": "^8.1.0",
         "express": "^4.17.1",
         "method-override": "*",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^2.6.1",
         "puppeteer": "^1.20.0",
         "request-promise": "^4.2.4",
         "request": "^2.88.0"
